@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Joiner Checklist</title>
+
+    <style>
+      body {
+        font-size: 16px;
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 100%;
+        /*    height: 600px;*/
+        margin: 0 auto;
+        box-sizing: border-box;
+        background-color: #dcd8cf;
+      }
+      img {
+        max-width: 600px;
+      }
+      header {
+        background-color: #282827;
+        padding: 10px;
+      }
+      section {
+        /*            background-image: linear-gradient(to right,#09203F,#537895);*/
+        background-color: #dcd8cf;
+        padding: 10px;
+      }
+      h1 {
+        font-size: 18px;
+        text-align: center;
+        margin: 20px 0 20px 0;
+      }
+      .rt-heading h1 {
+        padding: 10px;
+        color: whitesmoke;
+        font-size: 30px;
+      }
+
+      h1 + p {
+        text-align: center;
+      }
+
+      /*
+h1 + p a, .redly {
+    background: #b93232;
+    color: #FFF;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto 22px auto;
+    width: 140px;
+    text-align: center;
+    padding: 6px 14px 8px 14px;
+    border-radius: 3px;
+}
+*/
+
+      label {
+        display: block;
+        padding: 8px 22px;
+        margin: 0 0 1px 0;
+        cursor: pointer;
+        background: #6aab95;
+        border-radius: 3px;
+        color: #fff;
+        transition: ease 0.5s;
+      }
+      label:hover {
+        background: #4e8774;
+      }
+      .content {
+        background: #e2e5f6;
+        padding: 10px 25px;
+        border: 1px solid #a7a7a7;
+        margin: 0 0 1px 0;
+        border-radius: 3px;
+        /*
+    position: relative;
+    bottom: 0;
+*/
+      }
+
+      input + .content {
+        display: none;
+      }
+
+      input:checked + .content {
+        display: block;
+      }
+
+      input {
+        display: none;
+      }
+
+      .note {
+        color: red;
+      }
+      .plus {
+        padding-right: 16px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+      }
+      /* css for tabs       */
+      .tab-wrap {
+        -webkit-transition: 0.3s box-shadow ease;
+        transition: 0.3s box-shadow ease;
+        border-radius: 6px;
+        max-width: 100%;
+        min-height: 275px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+        list-style: none;
+        background-color: transparent;
+        margin: 40px 0;
+      }
+
+      .tab {
+        display: none;
+      }
+      .tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:checked:nth-of-type(5) ~ .tab__content:nth-of-type(5) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:checked:nth-of-type(6) ~ .tab__content:nth-of-type(6) {
+        opacity: 1;
+        -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        transition: 0.5s opacity ease-in, 0.8s transform ease,
+          0.8s -webkit-transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        text-shadow: 0 0 0;
+      }
+      .tab:first-of-type:not(:last-of-type) + label {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .tab:not(:first-of-type):not(:last-of-type) + label {
+        border-radius: 0;
+      }
+      .tab:last-of-type:not(:first-of-type) + label {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .tab:checked + label {
+        background-color: #282827;
+        box-shadow: 0 -1px 0 #fff inset;
+        cursor: default;
+      }
+      .tab:checked + label:hover {
+        box-shadow: 0 -1px 0 #fff inset;
+        background-color: #282827;
+        color: white;
+      }
+      .tab + label {
+        box-shadow: 0 -1px 0 #eee inset;
+        border-radius: 6px 6px 0 0;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+        flex-grow: 3;
+        text-align: center;
+        background-color: #6aab95;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-align: center;
+        -webkit-transition: 0.3s background-color ease, 0.3s box-shadow ease;
+        transition: 0.3s background-color ease, 0.3s box-shadow ease;
+        height: 50px;
+        box-sizing: border-box;
+        padding: 15px;
+      }
+      .tab + label:hover {
+        background-color: #f9f9f9;
+        box-shadow: 0 1px 0 #f4f4f4 inset;
+        color: black;
+      }
+      .tab__content {
+        padding-top: 10px;
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        opacity: 0;
+        left: 0;
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+        border-radius: 6px;
+      }
+
+      .container {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+      }
+      .container > *:not(.tab-wrap) {
+        padding: 0 80px;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        color: #444;
+        text-align: center;
+        font-weight: 400;
+      }
+
+      h2.heading {
+        font-size: 2em;
+        margin-bottom: 8px;
+      }
+
+      h2 {
+        font-size: 1em;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-weight: 400;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      /*        footer css*/
+      .footer-outer {
+        margin: 0;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        font-size: 14px;
+        background-color: #f4f4f4;
+        align-items: start;
+      }
+      .footer {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 30px 30px 20px 30px;
+        color: white;
+        background-color: #282827;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .footer > * {
+        flex: 1 100%;
+      }
+
+      .footer__addr {
+        margin-right: 1.25em;
+        margin-bottom: 2em;
+        padding-right: 12px;
+      }
+
+      .footer__logo {
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        text-transform: lowercase;
+        font-size: 1.5rem;
+        text-align: left;
+        color: blue;
+        font-style: italic;
+      }
+
+      .footer__addr h2 {
+        margin-top: 1.3em;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .nav__title {
+        font-weight: 400;
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .footer address {
+        font-style: normal;
+        color: #999;
+      }
+
+      .footer__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 36px;
+        max-width: max-content;
+        background-color: rgb(33, 33, 33, 0.07);
+        border-radius: 100px;
+        color: #2f2f2f;
+        line-height: 0;
+        margin: 0.6em 0;
+        font-size: 1rem;
+        padding: 0 1.3em;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .footer li {
+        line-height: 2em;
+      }
+
+      .footer a {
+        text-decoration: none;
+      }
+
+      .footer__nav {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      .footer__nav > * {
+        flex: 1 50%;
+        margin-right: 1.25em;
+      }
+
+      .nav__ul a {
+        color: #999;
+      }
+
+      .nav__ul--extra {
+        column-count: 2;
+        column-gap: 1.25em;
+      }
+
+      .legal {
+        display: flex;
+        flex-wrap: wrap;
+        color: #999;
+      }
+
+      .legal__links {
+        display: flex;
+        align-items: center;
+      }
+
+      .heart {
+        color: #2f2f2f;
+      }
+
+      @media screen and (min-width: 24.375em) {
+        .legal .legal__links {
+          margin-left: auto;
+        }
+      }
+
+      @media screen and (min-width: 40.375em) {
+        .footer__nav > * {
+          flex: 1;
+        }
+
+        .nav__item--extra {
+          flex-grow: 2;
+        }
+
+        .footer__addr {
+          flex: 1 0px;
+        }
+
+        .footer__nav {
+          flex: 2 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="ScriptHeader">
+      <div class="rt-container">
+        <div class="col-rt-12">
+          <div class="rt-heading">
+            <h1>New Joiners Checklist</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="rt-container">
+        <div class="col-rt-12">
+          <div class="tab-wrap">
+            <input
+              type="radio"
+              id="tab1"
+              name="tabGroup2"
+              class="tab"
+              checked
+            />
+            <label for="tab1">Profile & Request</label>
+
+            <input type="radio" id="tab2" name="tabGroup2" class="tab" />
+            <label for="tab2">Laptop Issue</label>
+
+            <input type="radio" id="tab3" name="tabGroup2" class="tab" />
+            <label for="tab3">Skills & Training</label>
+
+            <input type="radio" id="tab4" name="tabGroup2" class="tab" />
+            <label for="tab4">IT & Claims</label>
+
+            <input type="radio" id="tab5" name="tabGroup2" class="tab" />
+            <label for="tab5">Time & Leave</label>
+
+            <input type="radio" id="tab6" name="tabGroup2" class="tab" />
+            <label for="tab6">Miscellaneous</label>
+
+            <div class="tab__content">
+              <label for="title1"
+                ><span class="plus">+</span>Changing Reporting Manager
+              </label>
+              <input type="checkbox" id="title1" />
+
+              <div class="content">
+                <p>1. Navigate to https://www.myhcl.com</p>
+                <img
+                  src="./media/imgs/rm1.png"
+                  alt="img"
+                />
+                <p>
+                  2. Type “My Profile- ESS” in App Search box and it will
+                  redirect to ESS homepage
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\Downloads\img3.png"
+                  alt="img"
+                />
+                <p>
+                  3. Navigate to My Information-Employment, Select Reporting
+                  Manager
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\Downloads\img2.png"
+                  alt="img"
+                />
+                <p>4. Change RM by updating details on Update RM</p>
+                <p>5. Click on Submit.</p>
+                <p class="note">
+                  NOTE: There will be an auto mailer sent to the current RM to
+                  approve/reject the same and based on that will be updated
+                  after 48 hours.
+                </p>
+              </div>
+
+              <label for="title2"
+                ><span class="plus">+</span>ODC Access request</label
+              >
+              <input type="checkbox" id="title2" />
+
+              <div class="content">
+                <p>1. Navigate to https://www.myhcl.com</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\odc1.png"
+                  alt="odc1"
+                />
+                <p>
+                  2. Type “Access card right Management” and it will redirect to
+                  Access Homepage
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\odc2.png "
+                  alt="odc2"
+                />
+                <p>3. Create a new request >new access request</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\odc3.png"
+                  alt="odc3"
+                />
+                <p>Select “New joiner” checkbox and submit.</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\odc4.png"
+                  alt="odc4"
+                />
+                <p>
+                  Fill all the fields according to manager’s input and submit
+                  the request.
+                </p>
+              </div>
+              <label for="title3"
+                ><span class="plus">+</span>Raising an SSD Request</label
+              >
+              <input type="checkbox" id="title3" />
+
+              <div class="content">
+                <p>1. Navigate to https://www.myhcl.com</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\ssd1.png"
+                  alt="ssd1"
+                />
+                <p>2. Type “SSD” in App search box</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\ssd2.png"
+                  alt="ssd2"
+                />
+                <p>3. Create a SSD Request based on problem for individual</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\ssd3.png"
+                  alt="ssd3"
+                />
+                <p>
+                  4. If it is an application issue >select application issues
+                  checkbox create a ticket
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\ssd4.png"
+                  alt="ssd4"
+                />
+                <p>
+                  5. Fill the required fields according individual problem and
+                  submit the request.
+                </p>
+                <p>
+                  6. After Submission of SSD Request, individual can view their
+                  requests in open request.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content">
+              <label for="title4"
+                ><span class="plus">+</span>New Hire Laptop Request: HCL
+                Standard (Windows)</label
+              >
+              <input type="checkbox" id="title4" />
+
+              <div class="content">
+                <p>
+                  This request type will be applicable to new joiners 7 days
+                  before or after joining. The 7 days period includes the
+                  raising of ticket and getting it approved so it can be routed
+                  to the IT queue.
+                </p>
+                <p>a. Navigate to “sx.hcl.com”</p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\laptop1.png"
+                  alt="laptop1"
+                />
+                <p>
+                  b. Search for Standard Laptop – New Hire and click on Order
+                  Now
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\laptop2.png"
+                  alt="laptop2"
+                />
+                <p>
+                  c. Select Click to start button, it navigates to “Order Now”
+                  Page
+                </p>
+                <p>
+                  d. Fill the mandatory fields in components, Provide
+                  Information and Fulfillment information
+                </p>
+                <img
+                  src="C:\Users\krishna.mohanmishra\OneDrive - HCL Technologies Ltd\Pictures\site-images\laptop3.png"
+                  alt="laptop3"
+                />
+                <p class="note">
+                  NOTE: Smart Recruit Number – Reporting Manager to provide
+                </p>
+                <p>
+                  e. Finally Select Order now, there will be an Order ID
+                  generated for the requested machine and wait till the service
+                  team gets back to individual.
+                </p>
+              </div>
+              <label for="title5"
+                ><span class="plus">+</span>Regular Laptop Request: HCL Standard
+                (Windows) Or Non-Standard (Macbook)</label
+              >
+              <input type="checkbox" id="title5" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content">
+              <label for="title6"
+                ><span class="plus">+</span>Skill Update (Profile
+                Generator)</label
+              >
+              <input type="checkbox" id="title6" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title7"
+                ><span class="plus">+</span>JBC and other Mandatory
+                Trainings</label
+              >
+              <input type="checkbox" id="title7" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content">
+              <label for="title8"
+                ><span class="plus">+</span>IT Declaration</label
+              >
+              <input type="checkbox" id="title8" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title9"
+                ><span class="plus">+</span>Global claim process</label
+              >
+              <input type="checkbox" id="title9" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content">
+              <label for="title10"
+                ><span class="plus">+</span>Parking Hours in Timesheet</label
+              >
+              <input type="checkbox" id="title10" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title11"><span class="plus">+</span>Digi ACT</label>
+              <input type="checkbox" id="title11" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title12"
+                ><span class="plus">+</span>Leaves & Holidays</label
+              >
+              <input type="checkbox" id="title12" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+            <div class="tab__content">
+              <label for="title13"
+                ><span class="plus">+</span>Adobe onboarding process with IT
+                support numbers</label
+              >
+              <input type="checkbox" id="title13" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title14"><span class="plus">+</span>XTRAMILES</label>
+              <input type="checkbox" id="title14" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+              <label for="title15"
+                ><span class="plus">+</span>Special Scenarios</label
+              >
+              <input type="checkbox" id="title15" />
+
+              <div class="content">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+<div class="footer-outer">
+<footer class="footer">
+  <div class="footer__addr">
+    <h1 class="footer__logo">HCL</h1>
+        
+    <h2>Carporate Headquarters</h2>
+    
+    <address>
+HCL Technologies Ltd.
+Technology Hub, SEZ
+Plot No. 3A, Sector 126
+Noida – 201304, India<br>
+    </address>
+  </div>
+  
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Important Phone Numbers</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">+91 1234567890</a>
+        </li>
+
+        <li>
+          <a href="#">+91 0987654321</a>
+        </li>
+            
+      </ul>
+    </li>
+    
+    <li class="nav__item ">
+      <h2 class="nav__title">Important Email Ids</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">abc@hcl.com</a>
+        </li>
+        
+        <li>
+          <a href="#">cvb@hcl.com</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+        
+        <li>
+          <a href="#">Sitemap</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  
+  <div class="legal">
+    <p>&copy; 2022 hcltech. All rights reserved.</p>
+    
+  </div>
+</footer>
+    </div>
+-->
+  </body>
+</html>
